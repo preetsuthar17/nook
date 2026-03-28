@@ -31,11 +31,11 @@ struct StatusMenuView: View {
 
             Divider().padding(.vertical, 4)
 
-            PopoverMenuRow(title: "Quit", systemImage: "power") {
+            PopoverMenuRow(title: "Quit", systemImage: "power", isLast: true) {
                 NSApplication.shared.terminate(nil)
             }
         }
-        .padding(.horizontal, 4)
+        .padding(.horizontal, 8)
     }
 
     private var activeMenu: some View {
@@ -96,23 +96,25 @@ struct StatusMenuView: View {
 
             Divider().padding(.vertical, 4)
 
-            PopoverMenuRow(title: "Quit", systemImage: "power") {
+            PopoverMenuRow(title: "Quit", systemImage: "power", isLast: true) {
                 NSApplication.shared.terminate(nil)
             }
         }
-        .padding(.horizontal, 4)
+        .padding(.horizontal, 8)
     }
 }
 
 private struct PopoverMenuRow: View {
     let title: String
     let systemImage: String?
+    let isLast: Bool
     let action: () -> Void
     @State private var isHovered = false
 
-    init(title: String, systemImage: String? = nil, action: @escaping () -> Void) {
+    init(title: String, systemImage: String? = nil, isLast: Bool = false, action: @escaping () -> Void) {
         self.title = title
         self.systemImage = systemImage
+        self.isLast = isLast
         self.action = action
     }
 
@@ -133,7 +135,7 @@ private struct PopoverMenuRow: View {
         .buttonStyle(.plain)
         .foregroundStyle(isHovered ? .white : .primary)
         .background(isHovered ? Color(nsColor: NSColor(red: 0.075, green: 0.376, blue: 0.702, alpha: 1.0)) : .clear)
-        .clipShape(RoundedRectangle(cornerRadius: 4))
+        .clipShape(UnevenRoundedRectangle(topLeadingRadius: 4, bottomLeadingRadius: isLast ? 12 : 4, bottomTrailingRadius: isLast ? 12 : 4, topTrailingRadius: 4))
         .onHover { isHovered = $0 }
     }
 }

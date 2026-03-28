@@ -83,7 +83,7 @@ final class MenuBarLabelFormatterTests: XCTestCase {
 
         let content = MenuBarLabelFormatter.content(launchPhase: .ready, state: state)
 
-        XCTAssertEqual(content.symbolName, "pause.slash.fill")
+        XCTAssertEqual(content.symbolName, "pause.fill")
         XCTAssertNil(content.countdownText)
     }
 }

@@ -27,7 +27,7 @@ enum MenuBarLabelFormatter {
 
         if state.isPaused {
             return MenuBarLabelContent(
-                symbolName: "pause.slash.fill",
+                symbolName: "pause.fill",
                 countdownText: nil,
                 accessibilityLabel: state.pauseReason ?? "Paused"
             )

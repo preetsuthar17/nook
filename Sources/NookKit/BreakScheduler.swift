@@ -41,6 +41,7 @@ public final class BreakScheduler: @unchecked Sendable {
     private var postponedUntil: Date?
     private var lastKnownNow: Date?
     private var idleResetApplied = false
+    private var manualPauseRemainingUntilBreak: TimeInterval?
     private var statusText = "Preparing your first session"
     private let smartPauseResumeGracePeriod: TimeInterval = 2 * 60
 
@@ -231,6 +232,7 @@ public final class BreakScheduler: @unchecked Sendable {
         automaticPauseState = nil
         isPaused = true
         pauseReason = reason
+        manualPauseRemainingUntilBreak = nextBreakDate.map { max($0.timeIntervalSince(now), 0) }
         statusText = reason
         return snapshot(now: now, reminderJustActivated: false, breakJustStarted: false, breakJustEnded: false)
     }
@@ -240,10 +242,15 @@ public final class BreakScheduler: @unchecked Sendable {
         isPaused = false
         pauseReason = nil
         if activeBreak == nil {
-            nextBreakDate = now.addingTimeInterval(settings.breakSettings.workInterval)
+            if let remaining = manualPauseRemainingUntilBreak {
+                nextBreakDate = now.addingTimeInterval(remaining)
+            } else {
+                nextBreakDate = now.addingTimeInterval(settings.breakSettings.workInterval)
+            }
             reminderForBreakDate = nil
             suppressReminderForCurrentBreak = false
         }
+        manualPauseRemainingUntilBreak = nil
         statusText = "Back on schedule"
         return snapshot(now: now, reminderJustActivated: false, breakJustStarted: false, breakJustEnded: false)
     }

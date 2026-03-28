@@ -128,6 +128,23 @@ final class BreakSchedulerTests: XCTestCase {
     }
 
     @MainActor
+    func testManualPauseResumePreservesRemainingTime() {
+        var settings = AppSettings.default
+        settings.breakSettings.workInterval = 120
+        let scheduler = BreakScheduler(settings: settings)
+        let start = Date(timeIntervalSinceReferenceDate: 1_000)
+
+        _ = scheduler.advance(to: start, idleSeconds: 0)
+        // Pause 40 seconds into the 120-second interval (80s remaining)
+        _ = scheduler.pause(reason: "Paused manually", now: start.addingTimeInterval(40))
+        // Resume 30 seconds later
+        let resumed = scheduler.resume(now: start.addingTimeInterval(70))
+
+        // Should still have 80s remaining from resume time → break at start+150
+        XCTAssertEqual(resumed.state.nextBreakDate, start.addingTimeInterval(150))
+        XCTAssertFalse(resumed.state.isPaused)
+    }
+
     func testSmartPauseResumeRestoresRemainingTimeWithoutImmediateBreak() {
         var settings = AppSettings.default
         settings.breakSettings.workInterval = 120
