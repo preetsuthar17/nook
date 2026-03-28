@@ -237,6 +237,7 @@ struct OnboardingFlowView: View {
         Button(action: action) {
             Text(label)
                 .font(.system(size: 17, weight: .medium))
+                .monospacedDigit()
                 .foregroundStyle(isSelected ? .black : .white.opacity(0.85))
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 14)
