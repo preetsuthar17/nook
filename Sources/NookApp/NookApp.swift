@@ -6,7 +6,7 @@ struct NookApp: App {
 
     var body: some Scene {
         Settings {
-            SettingsView(model: appDelegate.model)
+            EmptyView()
         }
     }
 }

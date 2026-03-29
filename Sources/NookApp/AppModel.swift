@@ -31,6 +31,7 @@ final class AppModel: ObservableObject {
     private var wakeObserver: NSObjectProtocol?
     private var hasHandledInitialAppLaunch = false
 
+    private lazy var settingsWindowController = SettingsWindowController()
     private lazy var onboardingFlowWindowController = OnboardingFlowWindowController()
     private lazy var breakOverlayController = BreakOverlayWindowController(model: self)
     private lazy var breakReminderController = ReminderPanelController(model: self)
@@ -248,6 +249,10 @@ final class AppModel: ObservableObject {
 
     func dismissBreakWindow() {
         windowCoordinator.hideBreakOverlay()
+    }
+
+    func openSettings() {
+        settingsWindowController.show(model: self)
     }
 
     func dismissStarterSetupWithDefaults() {

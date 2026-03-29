@@ -85,12 +85,7 @@ struct StatusMenuView: View {
             }
 
             PopoverMenuRow(title: "Open Settings", systemImage: "gearshape") {
-                if #available(macOS 14, *) {
-                    NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
-                } else {
-                    NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
-                }
-                NSApp.activate(ignoringOtherApps: true)
+                model.openSettings()
                 dismiss()
             }
 
