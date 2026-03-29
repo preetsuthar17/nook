@@ -1,6 +1,6 @@
 import Foundation
-@testable import NookKit
-@testable import NookApp
+@testable import Core
+@testable import AppShell
 import XCTest
 
 final class MenuBarLabelFormatterTests: XCTestCase {

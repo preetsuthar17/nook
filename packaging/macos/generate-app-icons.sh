@@ -5,9 +5,9 @@ set -euo pipefail
 script_dir=${0:A:h}
 repo_root=${script_dir:h:h}
 
-source_logo="${repo_root}/Nook Logo.png"
-runtime_icon="${repo_root}/Sources/NookApp/Resources/AppIcon.png"
-xcassets_dir="${repo_root}/Sources/NookApp/Resources/Assets.xcassets"
+source_logo="${repo_root}/nook logo.png"
+runtime_icon="${repo_root}/Sources/AppShell/Resources/AppIcon.png"
+xcassets_dir="${repo_root}/Sources/AppShell/Resources/Assets.xcassets"
 appiconset_dir="${xcassets_dir}/AppIcon.appiconset"
 bundle_icon="${repo_root}/packaging/macos/AppIcon.icns"
 

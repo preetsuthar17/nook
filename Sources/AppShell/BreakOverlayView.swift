@@ -1,4 +1,4 @@
-import NookKit
+import Core
 import SwiftUI
 
 struct BreakOverlayView: View {

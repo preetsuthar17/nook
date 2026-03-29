@@ -1,5 +1,5 @@
 import AppKit
-import NookKit
+import Core
 import SwiftUI
 
 @MainActor

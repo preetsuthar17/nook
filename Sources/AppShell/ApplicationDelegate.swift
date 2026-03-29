@@ -3,7 +3,7 @@ import AppKit
 import SwiftUI
 
 @MainActor
-final class NookApplicationDelegate: NSObject, NSApplicationDelegate {
+final class ApplicationDelegate: NSObject, NSApplicationDelegate {
     let model = AppModel()
 
     private var statusItem: NSStatusItem!

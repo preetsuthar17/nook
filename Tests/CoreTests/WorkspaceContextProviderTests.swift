@@ -1,5 +1,5 @@
 import Foundation
-import NookKit
+import Core
 import XCTest
 
 final class WorkspaceContextProviderTests: XCTestCase {

@@ -1,36 +1,36 @@
-# Nook
+# nook
 
 <p align="center">
-  <img src="Sources/NookApp/Resources/AppIcon.png" alt="Nook" width="128">
+  <img src="Sources/AppShell/Resources/AppIcon.png" alt="nook" width="128">
 </p>
 
 <p align="center">
   <strong>Open-source, privacy-first macOS break reminders for a calmer work rhythm</strong>
 </p>
 
-Nook is a native menu bar app for macOS that helps you take screen breaks without accounts, subscriptions, or cloud syncing.
+nook is a native menu bar app for macOS that helps you take screen breaks without accounts, subscriptions, or cloud syncing.
 
-> Nook is in active development and should be treated as early alpha software. UI details, contributor workflows, and local setup may still change as the app is being hardened.
+> nook is in active development and should be treated as early alpha software. UI details, contributor workflows, and local setup may still change as the app is being hardened.
 
-[Quick Start](#quick-start) · [What Nook Is](#what-nook-is) · [Why Nook Exists](#why-nook-exists) · [What It Feels Like](#what-it-feels-like) · [Current Capabilities](#current-capabilities) · [Repository Map](#repository-map) · [Contributing](#contributing) · [Support](#support)
+[Quick Start](#quick-start) · [What nook is](#what-nook-is) · [Why nook exists](#why-nook-exists) · [What It Feels Like](#what-it-feels-like) · [Current Capabilities](#current-capabilities) · [Repository Map](#repository-map) · [Contributing](#contributing) · [Support](#support)
 
-## What Nook Is
+## What nook is
 
-Nook is a native SwiftUI menu bar app for screen-break reminders on macOS.
+nook is a native SwiftUI menu bar app for screen-break reminders on macOS.
 
 It keeps track of your break rhythm locally, offers short and long breaks, and adds lightweight context-aware pause behavior so reminders can stay useful without feeling overly disruptive during focused work.
 
-## Why Nook Exists
+## Why nook exists
 
 Healthy break reminders should be available without a paywall, account system, or opaque syncing model.
 
-Nook is being built as a community-owned, privacy-first alternative in this category: small, local-first, and understandable from the inside out.
+nook is being built as a community-owned, privacy-first alternative in this category: small, local-first, and understandable from the inside out.
 
 ## What It Feels Like
 
-In day-to-day use, Nook is meant to stay quiet until it is helpful:
+In day-to-day use, nook is meant to stay quiet until it is helpful:
 
-1. You launch Nook and it lives in the menu bar.
+1. You launch nook and it lives in the menu bar.
 2. It keeps time for your next break locally.
 3. It gives you a heads-up reminder before the break starts.
 4. It shows a full break overlay when it is time to pause.
@@ -40,10 +40,10 @@ The goal is not to create a complicated wellness platform. The goal is to make t
 
 ## Current Capabilities
 
-Nook currently provides:
+nook currently provides:
 
 - a native macOS menu bar app in SwiftUI
-- a scheduler core in `NookKit`
+- a scheduler core in `Core`
 - short and long breaks
 - heads-up reminder panels
 - a break overlay window
@@ -74,7 +74,7 @@ Run the app:
 swift run
 ```
 
-For the full local development workflow, including `swift run Nook`, filtered test commands, and launch-time overrides such as `NOOK_WORK`, `NOOK_BREAK`, and `NOOK_FORCE_ONBOARDING`, see [docs/local-development.md](docs/local-development.md).
+For the full local development workflow, including `swift run nook`, filtered test commands, and launch-time overrides such as `NOOK_WORK`, `NOOK_BREAK`, and `NOOK_FORCE_ONBOARDING`, see [docs/local-development.md](docs/local-development.md).
 
 Quick examples:
 
@@ -98,8 +98,8 @@ NOOK_FORCE_ONBOARDING=1 swift run
 
 ## Repository Map
 
-- `Sources/NookApp/`: macOS app shell, menu bar UI, windows, and app coordination
-- `Sources/NookKit/`: scheduler, models, persistence, and platform integration
+- `Sources/AppShell/`: macOS app shell, menu bar UI, windows, and app coordination
+- `Sources/Core/`: scheduler, models, persistence, and platform integration
 - `Tests/`: scheduler, persistence, and app test coverage
 - `docs/`: release and supporting project docs, including the local development guide
 - `packaging/`: macOS packaging assets and helper scripts
@@ -116,7 +116,7 @@ If you want to support ongoing maintenance, see [SUPPORT.md](SUPPORT.md).
 
 ## Privacy
 
-Nook stores its settings locally in Application Support and does not send data to a server.
+nook stores its settings locally in Application Support and does not send data to a server.
 
 ## Roadmap
 
@@ -136,4 +136,4 @@ Nook stores its settings locally in Application Support and does not send data t
 
 ## License
 
-Nook is available under the [MIT License](LICENSE).
+nook is available under the [MIT License](LICENSE).

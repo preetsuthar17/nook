@@ -3,18 +3,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "Nook",
+    name: "nook",
     platforms: [
         .macOS(.v13),
     ],
     products: [
         .library(
-            name: "NookKit",
-            targets: ["NookKit"]
+            name: "Core",
+            targets: ["Core"]
         ),
         .executable(
-            name: "Nook",
-            targets: ["NookApp"]
+            name: "nook",
+            targets: ["AppShell"]
         ),
     ],
     dependencies: [
@@ -22,20 +22,20 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "NookKit"
+            name: "Core"
         ),
         .executableTarget(
-            name: "NookApp",
-            dependencies: ["NookKit", "ConfettiSwiftUI"],
+            name: "AppShell",
+            dependencies: ["Core", "ConfettiSwiftUI"],
             resources: [.process("Resources")]
         ),
         .testTarget(
-            name: "NookKitTests",
-            dependencies: ["NookKit"]
+            name: "CoreTests",
+            dependencies: ["Core"]
         ),
         .testTarget(
-            name: "NookAppTests",
-            dependencies: ["NookApp", "NookKit"]
+            name: "AppShellTests",
+            dependencies: ["AppShell", "Core"]
         ),
     ],
     swiftLanguageModes: [.v6]

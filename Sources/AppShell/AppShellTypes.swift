@@ -1,5 +1,5 @@
 import Foundation
-import NookKit
+import Core
 
 public enum AppLaunchPhase: String, Sendable {
     case onboarding
