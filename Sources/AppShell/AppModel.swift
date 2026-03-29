@@ -1,7 +1,7 @@
 import AppKit
 @preconcurrency import Combine
 import Foundation
-import NookKit
+import Core
 import OSLog
 import SwiftUI
 import UserNotifications
@@ -25,7 +25,7 @@ final class AppModel: ObservableObject {
     private let workspaceContextProvider: any WorkspaceContextProviding
     private let fullscreenPauseProvider: FullscreenPauseConditionProvider
     private let injectedWindowCoordinator: (any WindowCoordinator)?
-    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "Nook", category: "Timer")
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "nook", category: "Timer")
 
     private var timerCancellable: AnyCancellable?
     private var wakeObserver: NSObjectProtocol?
@@ -247,12 +247,12 @@ final class AppModel: ObservableObject {
         }
     }
 
-    func dismissBreakWindow() {
-        windowCoordinator.hideBreakOverlay()
-    }
-
     func openSettings() {
         settingsWindowController.show(model: self)
+    }
+
+    func dismissBreakWindow() {
+        windowCoordinator.hideBreakOverlay()
     }
 
     func dismissStarterSetupWithDefaults() {

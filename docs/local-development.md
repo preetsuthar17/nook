@@ -1,6 +1,6 @@
 # Local Development
 
-This guide covers the fastest way to build, run, and test Nook locally.
+This guide covers the fastest way to build, run, and test nook locally.
 
 ## Requirements
 
@@ -24,7 +24,7 @@ Launch the app from the repository root:
 swift run
 ```
 
-`swift run Nook` is also valid in this package because Nook is the executable product.
+`swift run nook` is also valid in this package because nook is the executable product.
 
 ## Test
 
@@ -44,7 +44,7 @@ swift test --filter AppModelLaunchTests
 
 ## Fast Local Iteration
 
-Nook supports launch-time environment variable overrides for local testing. These values are read when the app starts, override whatever is currently saved in settings, and do not persist back to disk.
+nook supports launch-time environment variable overrides for local testing. These values are read when the app starts, override whatever is currently saved in settings, and do not persist back to disk.
 
 Available overrides:
 

@@ -1,5 +1,5 @@
 import AppKit
-import NookKit
+import Core
 import SwiftUI
 
 struct StatusMenuView: View {
@@ -24,7 +24,7 @@ struct StatusMenuView: View {
 
             Divider().padding(.vertical, 4)
 
-            PopoverMenuRow(title: "Start Using Nook", systemImage: "play.fill") {
+            PopoverMenuRow(title: "Start Using nook", systemImage: "play.fill") {
                 model.dismissStarterSetupWithDefaults()
                 dismiss()
             }

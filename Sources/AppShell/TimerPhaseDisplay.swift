@@ -1,5 +1,5 @@
 import Foundation
-import NookKit
+import Core
 
 enum TimerPhase: Equatable {
     case work

@@ -1,6 +1,6 @@
 import Foundation
-import NookKit
-@testable import NookApp
+import Core
+@testable import AppShell
 import XCTest
 
 @MainActor

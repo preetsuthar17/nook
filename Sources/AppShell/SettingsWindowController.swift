@@ -2,7 +2,7 @@ import AppKit
 import SwiftUI
 
 @MainActor
-final class SettingsWindowController {
+final class SettingsWindowController: NSObject, NSWindowDelegate {
     private var window: NSWindow?
 
     var isVisible: Bool {
@@ -15,17 +15,31 @@ final class SettingsWindowController {
         if !isVisible {
             window.center()
         }
+
+        // Temporarily become a regular app so the window can hold focus
+        // and appear in the dock / Cmd-Tab switcher.
+        NSApp.setActivationPolicy(.regular)
         window.makeKeyAndOrderFront(nil)
-        // Defer activation to the next run loop tick so the popover
-        // has time to close first; otherwise the close steals focus
-        // and pushes this window to the background.
-        DispatchQueue.main.async {
-            NSApp.activate(ignoringOtherApps: true)
-        }
+        NSApp.activate(ignoringOtherApps: true)
     }
 
     func hide() {
         window?.orderOut(nil)
+        revertToAccessory()
+    }
+
+    // MARK: - NSWindowDelegate
+
+    nonisolated func windowWillClose(_ notification: Notification) {
+        MainActor.assumeIsolated {
+            revertToAccessory()
+        }
+    }
+
+    // MARK: - Private
+
+    private func revertToAccessory() {
+        NSApp.setActivationPolicy(.accessory)
     }
 
     private func makeWindow(model: AppModel) -> NSWindow {
@@ -38,10 +52,11 @@ final class SettingsWindowController {
             backing: .buffered,
             defer: false
         )
-        window.title = "Nook Settings"
+        window.title = "nook Settings"
         window.contentView = hostingView
         window.isReleasedWhenClosed = false
         window.contentMinSize = NSSize(width: 560, height: 380)
+        window.delegate = self
         return window
     }
 }

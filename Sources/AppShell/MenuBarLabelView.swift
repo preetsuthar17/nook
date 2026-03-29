@@ -1,4 +1,4 @@
-import NookKit
+import Core
 import SwiftUI
 
 struct MenuBarLabelContent: Equatable {
@@ -13,7 +13,7 @@ enum MenuBarLabelFormatter {
             return MenuBarLabelContent(
                 symbolName: "pause.fill",
                 countdownText: nil,
-                accessibilityLabel: "Nook"
+                accessibilityLabel: "nook"
             )
         }
 

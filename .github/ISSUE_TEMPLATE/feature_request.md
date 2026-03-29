@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an improvement for Nook
+about: Suggest an improvement for nook
 title: "[Feature] "
 labels: enhancement
 assignees: ""

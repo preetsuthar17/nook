@@ -1,4 +1,4 @@
-import NookKit
+import Core
 import SwiftUI
 
 enum SettingsTab: String, CaseIterable, Identifiable {
@@ -35,6 +35,8 @@ struct SettingsView: View {
                 DurationSettingsPane(model: model)
             }
         }
+        .toolbar(content: { ToolbarItem { EmptyView() } })
+        .toolbar(.hidden)
     }
 }
 

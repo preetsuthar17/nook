@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping build Nook.
+Thanks for helping build nook.
 
 ## Local setup
 
@@ -12,7 +12,7 @@ Thanks for helping build Nook.
 
 - Keep the product native to macOS.
 - Preserve the privacy-first, local-only posture.
-- Prefer testable logic in `NookKit` over view-driven state.
+- Prefer testable logic in `Core` over view-driven state.
 - Avoid introducing telemetry, accounts, or remote dependencies without a design discussion.
 
 ## Pull requests

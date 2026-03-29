@@ -3,19 +3,14 @@ import AppKit
 import SwiftUI
 
 @MainActor
-final class NookApplicationDelegate: NSObject, NSApplicationDelegate {
-    let model: AppModel
+final class ApplicationDelegate: NSObject, NSApplicationDelegate {
+    let model = AppModel()
 
     private var statusItem: NSStatusItem!
     private var popover: NSPopover!
     private var cancellables = Set<AnyCancellable>()
     private var eventMonitor: Any?
     private var lastCloseDate: Date = .distantPast
-
-    override init() {
-        self.model = AppModel()
-        super.init()
-    }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         Self.configureAppIcon()

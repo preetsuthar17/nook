@@ -1,4 +1,4 @@
-import NookKit
+import Core
 import XCTest
 
 final class TimeIntervalFormattingTests: XCTestCase {

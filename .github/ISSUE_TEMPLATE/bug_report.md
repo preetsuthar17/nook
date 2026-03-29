@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a problem in Nook
+about: Report a problem in nook
 title: "[Bug] "
 labels: bug
 assignees: ""

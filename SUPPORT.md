@@ -1,6 +1,6 @@
-# Support Nook
+# Support nook
 
-If Nook is useful to you and you want to help sustain its development, the best way to support the project right now is through GitHub Sponsors.
+If nook is useful to you and you want to help sustain its development, the best way to support the project right now is through GitHub Sponsors.
 
 ## Sponsor the Maintainer
 
